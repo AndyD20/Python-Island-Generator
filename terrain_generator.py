@@ -3,7 +3,7 @@ import sys
 from game_state import GameState
 from program_variables import ProgramVariables
 from pygame_helpers import initialise_pygame, running_loop
-from generate_noise import generate_noise
+from generate_noise import generate_noise, circle_filter
 from set_terrain_colours import set_terrain_colours
 
 
@@ -13,7 +13,8 @@ def main():
     ProgramVariables.game_state = GameState.RUNNING
 
     noise_array = generate_noise()
-    colour_array = set_terrain_colours(display_surface, noise_array)
+
+    set_terrain_colours(display_surface, noise_array)
 
     running_loop()
 
