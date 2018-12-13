@@ -11,10 +11,15 @@ base = randint(1, 100) if ProgramVariables.random else 0
 
 def generate_noise():
     circle = circle_filter()
-    return [[(gen_noise(x, y) * circle[x][y]) * 20
-             if (gen_noise(x, y) * circle[x][y]) > 0
-             else (gen_noise(x, y) * circle[x][y])
-             for x in range(ProgramVariables.shape[0])] for y in range(ProgramVariables.shape[1])]
+
+    filtered_noise = [[(gen_noise(x, y) * circle[x][y]) * 20
+                      if (gen_noise(x, y) * circle[x][y]) > 0
+                      else (gen_noise(x, y) * circle[x][y])
+                      for x in range(ProgramVariables.shape[0])] for y in range(ProgramVariables.shape[1])]
+
+    max_grad = max([max(elem) for elem in filtered_noise])
+
+    return [[abs(elem) / max_grad for elem in row] for row in filtered_noise]
 
 
 def circle_filter():
@@ -30,7 +35,7 @@ def circle_filter():
     circle_array = [[elem * 20 if elem > 0 else elem for elem in row] for row in circle_array]
 
     max_grad = max([max(elem) for elem in circle_array])
-    circle_array = [[elem / max_grad if max_grad != 0 else elem for elem in row] for row in circle_array]
+    circle_array = [[elem / max_grad for elem in row] for row in circle_array]
 
     return circle_array
 

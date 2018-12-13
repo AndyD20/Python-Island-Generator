@@ -10,19 +10,19 @@ def get_colour(val):
 
     shade_modifier = val + ProgramVariables.contrast
 
-    threshold = 0.2
+    threshold = 0.1
 
     if val < threshold + 0.05:
-        colour = [shade * shade_modifier for shade in colours.blue]
+        colour = [shade * shade_modifier for shade in colours.ocean]
     elif val < threshold + 0.055:
-        colour = [shade * shade_modifier for shade in colours.sandy]
-    elif val < threshold + 0.1:
+        colour = [shade * shade_modifier for shade in colours.dark_sand]
+    elif val < threshold + 0.10:
         colour = [shade * shade_modifier for shade in colours.beach]
     elif val < threshold + 0.25:
-        colour = [shade * shade_modifier for shade in colours.green]
-    elif val < threshold + 0.6:
-        colour = [shade * shade_modifier for shade in colours.darkgreen]
-    elif val < threshold + 0.7:
+        colour = [shade * shade_modifier for shade in colours.grass]
+    elif val < threshold + 0.60:
+        colour = [shade * shade_modifier for shade in colours.jungle]
+    elif val < threshold + 0.80:
         colour = [shade * shade_modifier for shade in colours.mountain]
     elif val < threshold + 1:
         colour = [shade * shade_modifier for shade in colours.snow]
