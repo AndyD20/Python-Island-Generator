@@ -12,7 +12,7 @@ def get_colour(val):
 
     threshold = 0.1
 
-    if val < threshold + 0.05:
+    if val < threshold + 0.04:
         colour = [shade * shade_modifier for shade in colours.ocean]
     elif val < threshold + 0.055:
         colour = [shade * shade_modifier for shade in colours.dark_sand]
@@ -20,9 +20,9 @@ def get_colour(val):
         colour = [shade * shade_modifier for shade in colours.beach]
     elif val < threshold + 0.25:
         colour = [shade * shade_modifier for shade in colours.grass]
-    elif val < threshold + 0.60:
+    elif val < threshold + 0.65:
         colour = [shade * shade_modifier for shade in colours.jungle]
-    elif val < threshold + 0.80:
+    elif val < threshold + 0.75:
         colour = [shade * shade_modifier for shade in colours.mountain]
     elif val < threshold + 1:
         colour = [shade * shade_modifier for shade in colours.snow]
