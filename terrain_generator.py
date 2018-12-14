@@ -1,7 +1,7 @@
 import pygame
 import sys
 
-from colour_array_to_display_surface import colour_array_to_display_surface
+from colour_array_to_display_surface import colour_array_to_display_surface, noise_array_to_display_surface
 from game_state import GameState
 from program_variables import ProgramVariables
 from pygame_helpers import initialise_pygame, running_loop
@@ -20,7 +20,10 @@ def main():
 
     colour_array = timer('Settings Colours', set_terrain_colours, [noise_array])
 
-    timer('Painting colours to display surface', colour_array_to_display_surface, [colour_array, display_surface])
+    if not ProgramVariables.view_raw_noise:
+        timer('Painting colours to display surface', colour_array_to_display_surface, [colour_array, display_surface])
+    else:
+        timer('Painting colours to display surface', noise_array_to_display_surface, [noise_array, display_surface])
 
     running_loop()
 

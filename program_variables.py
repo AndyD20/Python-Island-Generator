@@ -5,6 +5,7 @@ class ProgramVariables:
     game_state = None
     random = True
     contrast = 1
+    view_raw_noise = False
 
     class Colours:
         water = [0, 191, 255]
